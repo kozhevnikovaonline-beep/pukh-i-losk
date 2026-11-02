@@ -78,7 +78,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--head-h, 68px) + env(safe-area-inset-top, 0px)); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--cream); color: var(--plum);
   font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
@@ -979,6 +979,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   /* Шапка и липкая кнопка */
   var head = $('.site-head'), sticky = $('#stickyCta'), book = $('#book');
+  /* Блок после перехода из меню начинается ровно под шапкой */
+  function setHeadHeight() {
+    document.documentElement.style.setProperty('--head-h', Math.floor(head.getBoundingClientRect().height) + 'px');
+  }
+  setHeadHeight();
+  window.addEventListener('resize', setHeadHeight, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setHeadHeight);
   /* Появление при скролле */
   if ('IntersectionObserver' in window && !reduced) {
     var rvObs = new IntersectionObserver(function (es) {
