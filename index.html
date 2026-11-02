@@ -163,23 +163,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .trust b { color: var(--plum); font-family: var(--font-display); font-weight: 500; }
 .trust-star { color: #B98500; display: inline-flex; gap: 4px; align-items: center; }
 
-.hero-art { position: relative; max-width: 560px; width: 100%; margin-inline: auto; padding-top: 11%; min-width: 0; }
-.paw-toes { position: absolute; inset: 0 0 auto; width: 100%; height: auto; color: var(--powder); will-change: transform; overflow: visible; }
+.hero-art { position: relative; aspect-ratio: 1; max-width: 620px; width: 100%; margin-inline: auto; min-width: 0; }
+.paw-toes { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--rose); will-change: transform; overflow: visible; }
 .hero-photo {
-  position: relative; isolation: isolate; aspect-ratio: 6 / 7; width: 100%; background: var(--powder);
-  border-radius: 54% 46% 48% 52% / 44% 42% 58% 56%; overflow: hidden;
+  position: absolute; left: 8%; top: 32%; width: 84%; height: 68%; isolation: isolate; background: var(--powder);
+  clip-path: url(#pawPad);
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
-.float-pet { position: absolute; width: clamp(62px, 15%, 92px); aspect-ratio: 1; border-radius: 50%; border: 4px solid var(--white); overflow: hidden; background: var(--white); animation: bob 6s ease-in-out infinite; }
-.float-pet img { width: 100%; height: 100%; object-fit: cover; }
-.fp1 { left: -1%; top: 42%; }
-.fp2 { right: 0; top: 60%; animation-delay: -2s; }
-.fp3 { left: 12%; bottom: 3%; animation-delay: -4s; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; mix-blend-mode: multiply; }
 .hero-note {
-  position: absolute; right: 2%; bottom: 3%; background: var(--plum); color: var(--white); border-radius: var(--r-s);
-  padding: 10px 14px; font-size: .85rem; line-height: 1.3; max-width: 170px;
+  position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); width: max-content; max-width: 62%; text-align: center;
+  background: var(--plum); color: var(--white); border-radius: var(--r-s); padding: 8px 14px; font-size: .85rem; line-height: 1.3;
 }
-@keyframes bob { 50% { transform: translateY(-10px); } }
 .bubbles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .bubble {
   position: absolute; bottom: -60px; border-radius: 50%; pointer-events: auto; cursor: pointer; padding: 0; background: rgba(255,255,255,.35);
@@ -189,7 +183,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .bubble.pop { animation: pop .28s ease-out forwards; }
 @keyframes rise { to { transform: translate3d(var(--dx, 0), -115vh, 0); } }
 @keyframes pop { to { transform: scale(1.7); opacity: 0; } }
-@media (max-width: 959px) { .hero-art { order: -1; max-width: min(76vw, 400px); } }
+@media (max-width: 959px) {
+  .hero-art { order: -1; max-width: min(88vw, 440px); }
+  .hero-note { max-width: none; white-space: nowrap; padding: 5px 12px; font-size: .75rem; }
+}
 @media (min-width: 960px) {
   .hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: 48px; }
   .hero-cta .btn { flex: 0 1 auto; }
@@ -534,14 +531,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       </div>
     </div>
     <div class="hero-art">
-      <svg class="paw-toes" id="pawToes" viewBox="0 0 560 150" aria-hidden="true"><g fill="currentColor"><ellipse cx="62" cy="118" rx="44" ry="54"/><ellipse cx="196" cy="60" rx="50" ry="60"/><ellipse cx="350" cy="58" rx="50" ry="60"/><ellipse cx="490" cy="112" rx="46" ry="56"/></g></svg>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><clipPath id="pawPad" clipPathUnits="objectBoundingBox"><path d="M.5 .01C.66 .01 .75 .15 .83 .3C.91 .45 1 .57 1 .74C1 .9 .88 1 .73 1C.63 1 .57 .94 .5 .94C.43 .94 .37 1 .27 1C.12 1 0 .9 0 .74C0 .57 .09 .45 .17 .3C.25 .15 .34 .01 .5 .01Z"/></clipPath></defs></svg>
+      <svg class="paw-toes" id="pawToes" viewBox="0 0 1000 1000" aria-hidden="true"><g fill="currentColor"><ellipse cx="100" cy="385" rx="88" ry="122" transform="rotate(-24 100 385)"/><ellipse cx="335" cy="150" rx="98" ry="138" transform="rotate(-9 335 150)"/><ellipse cx="665" cy="150" rx="98" ry="138" transform="rotate(9 665 150)"/><ellipse cx="900" cy="385" rx="88" ry="122" transform="rotate(24 900 385)"/></g></svg>
       <div class="hero-photo">
         <!-- ЗАГЛУШКА: заменить на фото вашей клиентки или мастера с питомцем -->
         <img src="assets/img/hero-900.webp" srcset="assets/img/hero-500.webp 500w, assets/img/hero-900.webp 900w" sizes="(min-width: 960px) 560px, 100vw" width="900" height="1050" alt="Улыбающаяся девушка обнимает маленькую рыжую собаку" fetchpriority="high">
       </div>
-      <div class="float-pet fp1"><img src="assets/img/pet-cat-round.webp" width="160" height="160" alt="Пушистая кошка" loading="lazy" decoding="async"></div>
-      <div class="float-pet fp3"><img src="assets/img/pet-bichon-round.webp" width="160" height="160" alt="Белый бишон с бантом" loading="lazy" decoding="async"></div>
-      <p class="hero-note">Видео с вашим питомцем придёт прямо в мессенджер</p>
+      <p class="hero-note">Видео с питомцем придёт в мессенджер</p>
     </div>
   </div>
 </section>
