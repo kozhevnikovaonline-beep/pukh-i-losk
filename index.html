@@ -710,7 +710,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <p class="price"><small>комплекс от</small> 2 600 ₽</p>
           <p class="svc-anchor">Отдельно вышло бы от <s>3 200 ₽</s></p>
           <ul class="svc-list"><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Мытьё и сушка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Стрижка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Когти, уши, лапы</li></ul>
-          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>1,5–2 часа</p>
+          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>2 часа</p>
           <a class="btn btn-ghost btn-small" href="#book" data-service="Комплекс: маленькая собака" data-goal="cta_click">Выбрать время</a>
         </div>
       </article>
@@ -720,7 +720,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <p class="price"><small>комплекс от</small> 3 400 ₽</p>
           <p class="svc-anchor">Отдельно вышло бы от <s>4 200 ₽</s></p>
           <ul class="svc-list"><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Мытьё и сушка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Стрижка или тримминг</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Когти, уши, лапы</li></ul>
-          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>2–3 часа</p>
+          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>2,5 часа</p>
           <a class="btn btn-ghost btn-small" href="#book" data-service="Комплекс: средняя собака" data-goal="cta_click">Выбрать время</a>
         </div>
       </article>
@@ -730,7 +730,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <p class="price"><small>комплекс от</small> 4 800 ₽</p>
           <p class="svc-anchor">Отдельно вышло бы от <s>5 900 ₽</s></p>
           <ul class="svc-list"><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Мытьё и сушка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Вычёс или стрижка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Когти, уши, лапы</li></ul>
-          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>3–4 часа</p>
+          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>3,5 часа</p>
           <a class="btn btn-ghost btn-small" href="#book" data-service="Комплекс: крупная собака" data-goal="cta_click">Выбрать время</a>
         </div>
       </article>
@@ -740,7 +740,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
           <p class="price"><small>комплекс от</small> 3 200 ₽</p>
           <p class="svc-anchor">Отдельно вышло бы от <s>3 900 ₽</s></p>
           <ul class="svc-list"><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Мытьё и тихая сушка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Вычёс или стрижка</li><li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Когти и уши</li></ul>
-          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>1–1,5 часа</p>
+          <p class="svc-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>от 40 минут до 1,5 часа</p>
           <a class="btn btn-ghost btn-small" href="#book" data-service="Комплекс: кошка" data-goal="cta_click">Выбрать время</a>
         </div>
       </article>
@@ -750,7 +750,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       <ul class="extras-list">
         <li><span>Мытьё и сушка</span><b>от 1 000 ₽</b></li>
         <li><span>Стрижка</span><b>от 1 500 ₽</b></li>
-        <li><span>Гигиена: когти, уши, лапы</span><b>от 700 ₽</b></li>
+        <li><span>Экспресс-гигиена: когти, уши, лапы, до 30 минут</span><b>от 700 ₽</b></li>
         <li><span>Экспресс-линька</span><b>от 1 800 ₽</b></li>
         <li><span>SPA-уход и маска для шерсти</span><b>от 900 ₽</b></li>
         <li><span>Только когти</span><b>400 ₽</b></li>
@@ -1396,34 +1396,55 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     });
   }
 
-  /* Длительность визита по породе: ориентиры из прайсов груминг-салонов, в минутах */
+  /* Длительность визита: по размеру собаки или типу шерсти кошки, как в разделе «Услуги» */
+  var SIZES = {
+    small: { min: 120, label: 'маленькая собака' },
+    medium: { min: 150, label: 'средняя собака' },
+    large: { min: 210, label: 'крупная собака' },
+    catShort: { min: 60, label: 'короткошёрстная кошка' },
+    catLong: { min: 90, label: 'длинношёрстная кошка' }
+  };
+  var EXPRESS_MIN = 30, DEFAULT_MIN = 90, OPEN = 9 * 60, CLOSE = 21 * 60, DAYS = 14;
   var BREEDS = [
-    ['королевск\\S* пудел|стандартн\\S* пудел|большой пудел',240,'королевский пудель'], ['той-?пудел|мини-?пудел|карликов\\S* пудел',120,'мини-пудель'], ['пудел',150,'пудель'],
-    ['цверг',120,'цвергшнауцер'], ['ризен',210,'ризеншнауцер'], ['миттель|шнауцер',150,'шнауцер'],
-    ['ньюфаундленд',300,'ньюфаундленд'], ['самоед',240,'самоед'], ['маламут',240,'маламут'],
-    ['зенненхунд|бернск',240,'зенненхунд'], ['чау',210,'чау-чау'], ['хаски|лайк',180,'хаски'],
-    ['ретривер|голден|лабрадор',180,'ретривер'], ['овчарк',180,'овчарка'], ['бордер',150,'бордер-колли'],
-    ['колли',180,'колли'], ['акита',180,'акита'], ['кокер|спаниел',150,'спаниель'],
-    ['шелти',150,'шелти'], ['вест|хайленд',150,'вест-хайленд'], ['корги',120,'корги'],
-    ['бигл',90,'бигль'], ['доберман',90,'доберман'], ['бишон|болонк',150,'бишон'],
-    ['шпиц|померан',150,'шпиц'], ['йорк',120,'йоркширский терьер'], ['ши-?тцу',120,'ши-тцу'],
-    ['мальтипу|мальтез|мальтийск',120,'мальтипу или мальтезе'], ['пекинес',120,'пекинес'], ['папийон|папильон',90,'папийон'],
-    ['джек|рассел',90,'джек-рассел'], ['такс',60,'такса'], ['мопс',60,'мопс'],
-    ['бульдог',60,'бульдог'], ['чихуахуа',60,'чихуахуа'], ['той-?терьер|той терьер',60,'той-терьер'],
-    ['мейн-?кун',150,'мейн-кун'], ['персидск|перс(?![а-яё])',120,'персидская кошка'], ['рэгдолл|регдолл',120,'рэгдолл'],
-    ['сибирск|невск',120,'сибирская кошка'], ['британ|шотланд|вислоух',90,'британская или шотландская кошка'], ['сфинкс',60,'сфинкс']
+    ['королевск\\S* пудел|стандартн\\S* пудел|большой пудел', 'large', 'королевский пудель'],
+    ['той-?пудел|мини-?пудел|карликов\\S* пудел', 'small', 'мини-пудель'],
+    ['пудел', 'medium', 'пудель'],
+    ['цверг', 'small', 'цвергшнауцер'], ['ризен', 'large', 'ризеншнауцер'], ['миттель|шнауцер', 'medium', 'шнауцер'],
+    ['ньюфаундленд', 'large', 'ньюфаундленд'], ['самоед', 'large', 'самоед'], ['маламут', 'large', 'маламут'],
+    ['зенненхунд|бернск', 'large', 'зенненхунд'], ['сенбернар', 'large', 'сенбернар'], ['чау', 'large', 'чау-чау'],
+    ['хаски|лайк', 'large', 'хаски'], ['ретривер|голден|лабрадор', 'large', 'ретривер'], ['овчарк|алабай', 'large', 'овчарка'],
+    ['бордер', 'medium', 'бордер-колли'], ['колли', 'large', 'колли'], ['акита', 'large', 'акита'], ['доберман', 'large', 'доберман'],
+    ['кокер|спаниел', 'medium', 'спаниель'], ['шелти', 'medium', 'шелти'], ['вест|хайленд', 'medium', 'вест-хайленд'],
+    ['корги', 'medium', 'корги'], ['бигл', 'medium', 'бигль'], ['шарпей', 'medium', 'шарпей'],
+    ['бишон|болонк', 'small', 'бишон'], ['шпиц|померан', 'small', 'шпиц'], ['йорк', 'small', 'йоркширский терьер'],
+    ['ши-?тцу', 'small', 'ши-тцу'], ['мальтипу|мальтез|мальтийск', 'small', 'мальтипу или мальтезе'],
+    ['пекинес', 'small', 'пекинес'], ['папийон|папильон', 'small', 'папийон'], ['джек|рассел', 'small', 'джек-рассел'],
+    ['такс', 'small', 'такса'], ['мопс', 'small', 'мопс'], ['бульдог', 'small', 'бульдог'],
+    ['чихуахуа', 'small', 'чихуахуа'], ['той-?терьер|той терьер', 'small', 'той-терьер'], ['кавалер', 'small', 'кавалер-кинг-чарльз'],
+    ['мейн-?кун', 'catLong', 'мейн-кун'], ['персидск|перс(?![а-яе])', 'catLong', 'персидская'], ['рэгдолл|регдолл', 'catLong', 'рэгдолл'],
+    ['сибирск|невск|норвежск|ангор', 'catLong', 'сибирская'], ['длинношерст', 'catLong', 'длинношёрстная'],
+    ['британ|шотланд|вислоух', 'catShort', 'британская или шотландская'], ['сфинкс|бенгал|абиссин|ориентал', 'catShort', 'короткошёрстная порода'],
+    ['короткошерст', 'catShort', 'короткошёрстная']
   ].map(function (b) { return [new RegExp(b[0], 'i'), b[1], b[2]]; });
-  var DEFAULT_MIN = 90, OPEN = 9 * 60, CLOSE = 21 * 60, DAYS = 14;
+  var CAT = /(^|[^а-я])(кот|кош|котен|котик)/i;
+  var SERVICE_SIZE = { 'Комплекс: маленькая собака': 'small', 'Комплекс: средняя собака': 'medium', 'Комплекс: крупная собака': 'large', 'Комплекс: кошка': 'catLong' };
 
   function visitLength(pet, service) {
-    if (service === 'Гигиена и когти') return { min: 60, note: 'гигиена и когти' };
+    if (service === 'Гигиена и когти') return { min: EXPRESS_MIN, note: 'экспресс-процедура' };
     var text = pet.toLowerCase().replace(/ё/g, 'е');
     for (var i = 0; i < BREEDS.length; i++) {
-      if (BREEDS[i][0].test(text)) return { min: BREEDS[i][1], note: BREEDS[i][2] };
+      if (!BREEDS[i][0].test(text)) continue;
+      var size = BREEDS[i][1];
+      if (size === 'catShort' && /колтун/.test(text)) return { min: SIZES.catLong.min, note: BREEDS[i][2] + ', кошка с колтунами' };
+      return { min: SIZES[size].min, note: BREEDS[i][2] + ', ' + SIZES[size].label };
     }
-    return { min: DEFAULT_MIN, note: 'стандартный визит' };
+    if (CAT.test(text)) return { min: SIZES.catLong.min, note: 'кошка, порода не указана' };
+    var bySvc = SERVICE_SIZE[service];
+    if (bySvc) return { min: SIZES[bySvc].min, note: SIZES[bySvc].label };
+    return { min: DEFAULT_MIN, note: 'порода не указана' };
   }
   function hours(min) {
+    if (min < 60) return min + ' минут';
     var hr = min / 60, txt = String(hr).replace('.', ',');
     return txt + ' ' + (hr % 1 ? 'часа' : plural(hr, 'час', 'часа', 'часов'));
   }
