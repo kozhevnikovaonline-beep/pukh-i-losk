@@ -176,7 +176,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .head { display: grid; gap: 14px; max-width: 760px; margin-bottom: clamp(32px, 4vw, 56px); }
 .head p { font-size: var(--text-lead); color: var(--plum-soft); }
 .eyebrow { font-weight: 600; font-size: clamp(1.1rem, .95rem + .75vw, 1.6rem); line-height: 1.25; color: var(--rose-deep); display: inline-flex; align-items: center; gap: 8px; }
-.stub { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .02em; padding: 2px 8px; border-radius: 99px; background: var(--butter-light); color: #6B4E00; }
 
 /* Кнопки */
 .btn {
@@ -372,7 +371,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .rev-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 86%); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; }
 .rev { scroll-snap-align: start; background: var(--white); border: 1.5px solid var(--line); border-radius: var(--r-m); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
 .rev-stars { color: #B98500; display: flex; gap: 2px; }
-.rev-who { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: .95rem; }
+.rev-who { margin-top: auto; display: flex; align-items: center; gap: 12px; font-size: .95rem; }
+.rev-ava { width: 48px; height: 48px; flex: none; border-radius: 50%; object-fit: cover; border: 2px solid var(--powder); }
 .rev-who b { font-weight: 600; }
 .rev-who span.pet { color: var(--plum-soft); display: block; font-size: .9rem; }
 .rev-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
@@ -393,7 +393,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .offer-copy p { color: var(--on-plum-soft); font-size: var(--text-lead); }
 .offer-tag { color: var(--butter); font-weight: 600; }
 .timer { display: flex; flex-wrap: wrap; gap: 10px; }
-.timer div { min-width: 72px; padding: 10px 8px; text-align: center; border-radius: var(--r-s); background: rgba(255,255,255,.1); }
+.timer div { min-width: 64px; padding: 10px 8px; text-align: center; border-radius: var(--r-s); background: rgba(255,255,255,.1); }
 .timer b { display: block; font: 700 1.5rem/1.1 var(--font-display); color: var(--butter); font-variant-numeric: tabular-nums; }
 .timer span { font-size: .78rem; color: var(--on-plum-soft); }
 .offer-slots { display: inline-flex; gap: 8px; align-items: center; font-weight: 500; color: var(--white) !important; font-size: 1rem !important; }
@@ -410,8 +410,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .lead-photo img { width: 100%; height: 100%; object-fit: cover; }
 .lead-copy { display: grid; gap: 16px; min-width: 0; }
 .lead-copy > p { color: var(--plum-soft); }
-.lead-form { display: flex; flex-wrap: wrap; gap: 10px; }
-.lead-form .field { flex: 1 1 220px; }
+.lead-kicker { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--rose-deep); }
+.lead-gets { display: grid; gap: 10px; }
+.lead-gets li { display: flex; gap: 10px; align-items: flex-start; }
+.lead-gets .ico { color: var(--rose); margin-top: .2em; }
+.lead-gets b { font-weight: 600; }
+.lead-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.lead-note { font-size: .92rem; color: var(--plum-soft); }
 .checklist { background: var(--white); padding: 22px; border-radius: var(--r-m); display: grid; gap: 10px; }
 .checklist ol { display: grid; gap: 8px; }
 .checklist li { display: flex; gap: 10px; }
@@ -476,10 +481,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 @media (min-width: 900px) { .contacts { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; } }
 
-.foot { padding-block: 28px; font-size: .9rem; color: var(--plum-soft); border-top: 1px solid var(--line); }
-.foot-in { display: grid; gap: 12px; }
-.foot details summary { cursor: pointer; font-weight: 500; min-height: 44px; display: flex; align-items: center; }
-.foot details p { margin-top: 8px; max-width: 70ch; }
+.foot { background: var(--plum); color: var(--on-plum-soft); font-size: .95rem; padding-block: clamp(44px, 6vw, 72px) 24px; }
+.foot a { color: var(--white); text-decoration: none; }
+.foot a:hover { color: var(--butter); }
+.foot-grid { display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr); }
+.foot-brand { display: grid; gap: 16px; align-content: start; max-width: 380px; }
+.foot-logo { color: var(--white); }
+.foot-social { display: flex; gap: 10px; }
+.foot-social a { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.3); }
+.foot-social a:hover { background: var(--white); color: var(--plum); }
+.foot-h { font: 500 1rem/1.3 var(--font-display); color: var(--white); margin-bottom: 12px; }
+.foot-col ul { display: grid; gap: 2px; }
+.foot-col li a { display: inline-flex; align-items: center; min-height: 40px; }
+.foot-contacts { margin-bottom: 16px; }
+.foot-contacts li { padding-block: 6px; }
+.foot-bottom { display: grid; gap: 6px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); font-size: .88rem; }
+.foot details summary { cursor: pointer; font-weight: 500; min-height: 44px; display: flex; align-items: center; color: var(--white); }
+.foot details p { margin-bottom: 8px; max-width: 70ch; }
+.foot-note { opacity: .75; }
+@media (min-width: 680px) { .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .foot-grid { grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 40px; } }
 
 /* Липкая кнопка на мобильном */
 .sticky-cta {
@@ -496,6 +517,54 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Появление при скролле: контент виден и до срабатывания */
 .rv { transition: transform .5s cubic-bezier(.2,.7,.2,1), opacity .4s ease; }
 .rv.pre { transform: translateY(22px); opacity: .3; }
+
+/* Календарь записи */
+.field-hint { font-size: .86rem; color: var(--plum-soft); }
+.cal { align-content: start; }
+.cal-head { display: grid; gap: 4px; }
+.cal-head h3 { font-weight: 700; }
+.cal-head p { color: var(--plum-soft); font-size: .95rem; }
+.cal-days { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 8px; scroll-snap-type: x proximity; scrollbar-width: thin; }
+.cal-day {
+  flex: 0 0 auto; min-width: 66px; min-height: 72px; padding: 6px 8px; display: grid; place-items: center; gap: 0; scroll-snap-align: start;
+  border: 1.5px solid var(--line); border-radius: 16px; background: var(--white); color: var(--plum); font: 500 .8rem/1.2 var(--font-body); cursor: pointer;
+}
+.cal-day b { font: 700 1.15rem/1.1 var(--font-display); }
+.cal-day[aria-pressed="true"] { background: var(--plum); border-color: var(--plum); color: var(--white); }
+.cal-day:hover { border-color: var(--plum); }
+.cal-date { font-weight: 600; }
+.cal-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 8px; }
+.slot {
+  min-height: 52px; padding: 4px; display: grid; place-items: center; border-radius: 14px; cursor: pointer;
+  border: 1.5px solid var(--rose); background: var(--white); color: var(--rose-deep); font: 600 1rem/1.15 var(--font-body);
+}
+.slot small { display: block; font-size: .72rem; font-weight: 500; }
+.slot:hover { background: var(--powder-light); }
+.slot[aria-pressed="true"] { background: var(--rose); color: var(--white); }
+.slot:disabled { cursor: not-allowed; border-color: var(--line); background: #F4ECE9; color: #6F5F68; }
+.cal-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: .86rem; color: var(--plum-soft); }
+.lg { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+.lg-free { border: 1.5px solid var(--rose); }
+.lg-busy { background: #F4ECE9; border: 1.5px solid var(--line); margin-left: 8px; }
+.cal-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.cal-actions #calSubmit { flex: 1 1 180px; }
+.ok-when { font-weight: 600; }
+
+/* Уведомление о записи */
+.toast {
+  position: fixed; z-index: 45; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 12px; width: min(340px, calc(100vw - 32px)); padding: 12px 10px 12px 12px;
+  background: var(--white); color: var(--plum); border-radius: 18px; border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(46, 26, 58, .18);
+  animation: toastIn .45s cubic-bezier(.2,.7,.2,1);
+}
+.toast p { flex: 1; min-width: 0; font-size: .92rem; line-height: 1.35; }
+.toast b { display: block; font-weight: 600; }
+.toast span:not(.toast-ico) { color: var(--plum-soft); font-size: .82rem; }
+.toast-ico { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border-radius: 50%; background: var(--powder); color: var(--rose); }
+.toast-x { width: 36px; height: 36px; flex: none; border: 0; background: none; color: var(--plum-soft); font-size: 1.4rem; line-height: 1; cursor: pointer; border-radius: 50%; }
+.toast-x:hover { background: var(--powder-light); }
+@keyframes toastIn { from { transform: translateY(24px); opacity: 0; } }
+@media (max-width: 899px) { .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -580,7 +649,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       <div class="trust">
         <span class="trust-star"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>4,9</b>&nbsp;на Яндекс Картах</span>
         <span><b>1 200+</b> довольных хвостов</span>
-        <span class="stub">демо-цифры</span>
       </div>
     </div>
     <div class="hero-art">
@@ -588,7 +656,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       <svg class="deco-paw" style="--s:8%;top:3%;right:6%;rotate:18deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
       <svg class="deco-paw" style="--s:10%;bottom:4%;left:0;rotate:-10deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
       <div class="hero-photo">
-        <!-- ЗАГЛУШКА: заменить на фото вашей клиентки или мастера с питомцем -->
+        <!-- ЗАМЕНИТЬ: заменить на фото вашей клиентки или мастера с питомцем -->
         <img src="assets/img/hero-900.webp" srcset="assets/img/hero-500.webp 500w, assets/img/hero-900.webp 900w" sizes="(min-width: 960px) 560px, 100vw" width="900" height="1050" alt="Улыбающаяся девушка обнимает маленькую рыжую собаку" fetchpriority="high">
       </div>
       <p class="hero-note">Видео с вашим питомцем придёт прямо в мессенджер</p>
@@ -599,7 +667,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 <!-- Цифры -->
 <section class="band-plum stats-band on-dark" aria-label="Салон в цифрах">
   <div class="wrap stats">
-    <!-- ЗАГЛУШКА: подставьте реальные цифры -->
+    <!-- ЗАМЕНИТЬ: подставьте реальные цифры -->
     <div class="stat"><b data-count="1200" data-suffix="+">1 200+</b><span>питомцев прошли у нас уход</span></div>
     <div class="stat"><b data-count="7">7</b><span>лет средний стаж мастера</span></div>
     <div class="stat"><b>1 в зале</b><span>питомец за раз, всегда</span></div>
@@ -702,7 +770,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
         <button type="button" class="ba-tab" data-ba="1" aria-pressed="true">Белый лохматик</button>
         <button type="button" class="ba-tab" data-ba="3" aria-pressed="false">Ши-тцу</button>
       </div>
-      <!-- ЗАГЛУШКА: на стоке разные собаки. Замените на реальные пары снимков одного питомца -->
+      <!-- ЗАМЕНИТЬ: на стоке разные собаки. Замените на реальные пары снимков одного питомца -->
       <div class="ba" id="ba" style="--pos:50%">
         <img id="baBefore" src="assets/img/ba1-before.webp" width="900" height="700" alt="До груминга: лохматая собака, шерсть закрывает морду" loading="lazy" decoding="async">
         <img id="baAfter" class="ba-after" src="assets/img/ba1-after.webp" width="900" height="700" alt="После груминга: аккуратная белая собака с бантом" loading="lazy" decoding="async">
@@ -714,7 +782,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     <div class="ba-side">
       <h2 id="ba-h">Потяните ползунок и сравните сами</h2>
       <p>Каждый питомец уходит от нас с фотографией «после». С вашего разрешения снимки попадают в эту галерею.</p>
-      <p><span class="stub">демо: сток, разные собаки</span></p>
       <a class="btn" href="#book" data-goal="cta_click">Хочу так же</a>
     </div>
   </div>
@@ -749,7 +816,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       <p>Можно выбрать мастера при записи. Постоянный мастер быстрее находит контакт с вашим любимцем.</p>
     </div>
     <div class="masters">
-      <!-- ЗАГЛУШКА: мастера вымышленные, на фото стоковые модели -->
+      <!-- ЗАМЕНИТЬ: мастера вымышленные, на фото стоковые модели -->
       <article class="master rv"><div class="master-photo"><img src="assets/img/master-1.webp" width="600" height="680" alt="Мастер Амина с лохматой собакой" loading="lazy" decoding="async"></div><h3>Амина</h3><p class="master-meta">Стаж 9 лет, призёр чемпионата по грумингу</p><p>Любит лохматых терьеров и собак, которых другие салоны называют «сложными».</p></article>
       <article class="master rv"><div class="master-photo"><img src="assets/img/master-2.webp" width="600" height="680" alt="Мастер Дарья со щенком" loading="lazy" decoding="async"></div><h3>Дарья</h3><p class="master-meta">Стаж 6 лет, зоопсихология для грумеров</p><p>Ведёт первые визиты щенков, чтобы груминг с самого начала был в радость.</p></article>
       <article class="master rv"><div class="master-photo"><img src="assets/img/master-3.webp" width="600" height="680" alt="Мастер Елена с маленькой чёрной собакой" loading="lazy" decoding="async"></div><h3>Елена</h3><p class="master-meta">Стаж 7 лет, специалист по кошкам</p><p>Работает с кошками и пожилыми животными. Говорит, что ещё ни одна кошка не ушла обиженной.</p></article>
@@ -757,7 +824,32 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   </div>
 </section>
 
-<!-- 7. ВИЗИТ -->
+<!-- 7. ОФФЕР -->
+<section class="band" id="offer" aria-labelledby="o-h">
+  <div class="wrap">
+    <div class="offer on-dark">
+      <div class="offer-copy">
+        <p class="offer-tag">Для тех, кто у нас впервые</p>
+        <h2 id="o-h">−20% на первый визит и SPA для лап в подарок</h2>
+        <p>Первая встреча должна быть приятной для всех. Скидка действует на любой комплекс, а уход за подушечками мы добавим сами.</p>
+        <div id="timerBox" aria-live="off">
+          <p style="font-size:.95rem;margin-bottom:8px">Предложение действует до:</p>
+          <div class="timer" role="timer" aria-label="До конца акции">
+            <div><b id="tD">02</b><span>дней</span></div>
+            <div><b id="tH">11</b><span>часов</span></div>
+            <div><b id="tM">00</b><span>минут</span></div>
+            <div><b id="tS">47</b><span>секунд</span></div>
+          </div>
+        </div>
+        <p class="offer-slots"><svg class="ico" aria-hidden="true"><use href="#i-gift"/></svg><span id="seatsText">По акции осталось 4 места</span></p>
+        <div><a class="btn btn-butter" href="#book" data-service="Первый визит −20%" data-goal="cta_click">Получить скидку на первый визит</a></div>
+      </div>
+      <div class="offer-art"><img src="assets/img/offer-woman.webp" width="700" height="700" alt="Девушка держит на руках рыжего шпица" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ВИЗИТ -->
 <section class="band band-powder" id="visit" aria-labelledby="v-h">
   <svg class="deco-paw" style="--s:clamp(32px,5vw,58px);top:18px;right:5%;rotate:12deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
   <div class="wrap">
@@ -775,7 +867,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   </div>
 </section>
 
-<!-- 8. ГАРАНТИИ -->
+<!-- 9. ГАРАНТИИ -->
 <section class="band" aria-labelledby="g-h">
   <svg class="deco-paw" style="--s:clamp(21px,5vw,38px);top:18px;right:20%;rotate:-16deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
   <svg class="deco-paw" style="--s:clamp(28px,5vw,50px);bottom:14px;left:7%;rotate:24deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
@@ -789,13 +881,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   </div>
 </section>
 
-<!-- 9. ОТЗЫВЫ + карусель -->
+<!-- 10. ОТЗЫВЫ + карусель -->
 <section class="band band-powder" aria-labelledby="r-h">
   <svg class="deco-paw" style="--s:clamp(25px,5vw,46px);top:20px;right:7%;rotate:-12deg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paw"/></svg>
   <div class="wrap">
     <div class="head">
       <h2 id="r-h">Наши хвосты и их люди</h2>
-      <p><span class="stub">демо: клички и отзывы вымышленные, замените реальными</span></p>
     </div>
     <div class="tails" tabindex="0" role="region" aria-label="Карусель наших клиентов, прокручивается вбок">
       <figure class="tail"><img src="assets/img/cl-spa.webp" width="480" height="560" alt="Шпиц в розовом полотенце" loading="lazy" decoding="async"><figcaption>Персик<span>шпиц, SPA-уход</span></figcaption></figure>
@@ -807,39 +898,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       <figure class="tail"><img src="assets/img/cl-golden.webp" width="480" height="560" alt="Щенок золотистого ретривера" loading="lazy" decoding="async"><figcaption>Сэм<span>ретривер, первый груминг</span></figcaption></figure>
       <figure class="tail"><img src="assets/img/cl-spitz.webp" width="480" height="560" alt="Серый шпиц" loading="lazy" decoding="async"><figcaption>Тучка<span>шпиц, экспресс-линька</span></figcaption></figure>
     </div>
-    <!-- ЗАГЛУШКА: заменить реальными отзывами со скриншотами и ссылками -->
+    <!-- ЗАМЕНИТЬ: заменить реальными отзывами со скриншотами и ссылками -->
     <div class="rev-scroller" tabindex="0" role="region" aria-label="Отзывы, прокручиваются вбок">
-      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Персик боялся фена так, что мы сменили два салона. Здесь его сушили в несколько подходов и прислали видео, где он спокойно лежит. Я чуть не расплакалась.</p><footer class="rev-who"><div><b>Марина</b><span class="pet">хозяйка шпица</span></div><span class="stub">демо</span></footer></blockquote>
-      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Думала, Луну помыть невозможно. Елена справилась за час, без царапин с обеих сторон. Цена осталась той, что назвали на входе.</p><footer class="rev-who"><div><b>Алия</b><span class="pet">хозяйка рэгдолла</span></div><span class="stub">демо</span></footer></blockquote>
-      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Показал фото из интернета, и Бублика подстригли точь-в-точь. На прогулке теперь спрашивают, где мы стрижёмся. Даю ссылку.</p><footer class="rev-who"><div><b>Тимур</b><span class="pet">хозяин джек-рассела</span></div><span class="stub">демо</span></footer></blockquote>
+      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Персик боялся фена так, что мы сменили два салона. Здесь его сушили в несколько подходов и прислали видео, где он спокойно лежит. Я чуть не расплакалась.</p><footer class="rev-who"><img class="rev-ava" src="assets/img/rev-marina.webp" width="160" height="160" alt="Марина" loading="lazy" decoding="async"><div><b>Марина</b><span class="pet">хозяйка шпица</span></div></footer></blockquote>
+      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Думала, Луну помыть невозможно. Елена справилась за час, без царапин с обеих сторон. Цена осталась той, что назвали на входе.</p><footer class="rev-who"><img class="rev-ava" src="assets/img/rev-aliya.webp" width="160" height="160" alt="Алия" loading="lazy" decoding="async"><div><b>Алия</b><span class="pet">хозяйка рэгдолла</span></div></footer></blockquote>
+      <blockquote class="rev" style="margin:0"><div class="rev-stars" aria-label="5 из 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div><p>Показал фото из интернета, и Бублика подстригли точь-в-точь. На прогулке теперь спрашивают, где мы стрижёмся. Даю ссылку.</p><footer class="rev-who"><img class="rev-ava" src="assets/img/rev-timur.webp" width="160" height="160" alt="Тимур" loading="lazy" decoding="async"><div><b>Тимур</b><span class="pet">хозяин джек-рассела</span></div></footer></blockquote>
     </div>
     <div class="rev-links" id="revLinks" hidden>
       <a class="btn btn-ghost btn-small" href="#" hidden data-review="yandexReviews">Отзывы на Яндекс Картах</a>
       <a class="btn btn-ghost btn-small" href="#" hidden data-review="twoGisReviews">Отзывы в 2ГИС</a>
-    </div>
-  </div>
-</section>
-
-<!-- 10. ОФФЕР -->
-<section class="band" id="offer" aria-labelledby="o-h">
-  <div class="wrap">
-    <div class="offer on-dark">
-      <div class="offer-copy">
-        <p class="offer-tag">Для тех, кто у нас впервые</p>
-        <h2 id="o-h">−20% на первый визит и SPA для лап в подарок</h2>
-        <p>Первая встреча должна быть приятной для всех. Скидка действует на любой комплекс, а уход за подушечками мы добавим сами.</p>
-        <div id="timerBox" aria-live="off">
-          <p style="font-size:.95rem;margin-bottom:8px">Предложение действует до 30 ноября:</p>
-          <div class="timer" role="timer">
-            <div><b id="tD">00</b><span>дней</span></div>
-            <div><b id="tH">00</b><span>часов</span></div>
-            <div><b id="tM">00</b><span>минут</span></div>
-          </div>
-        </div>
-        <p class="offer-slots"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span>На этой неделе свободно окон: <span id="slots">6</span></span></p>
-        <div><a class="btn btn-butter" href="#book" data-service="Первый визит −20%" data-goal="cta_click">Получить скидку на первый визит</a></div>
-      </div>
-      <div class="offer-art"><img src="assets/img/offer-woman.webp" width="700" height="700" alt="Девушка держит на руках рыжего шпица" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -850,19 +917,21 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <div class="wrap lead">
     <div class="lead-photo rv"><img src="assets/img/lead-bath.webp" width="700" height="700" alt="Такса с любопытством смотрит из ванны" loading="lazy" decoding="async"></div>
     <div class="lead-copy">
-      <h2 id="l-h">Первый груминг? Заберите чек-лист подготовки</h2>
-      <p>Семь простых шагов, чтобы питомец пришёл к мастеру без страха. Оставьте номер, покажем чек-лист сразу, а мастер пришлёт его в мессенджер.</p>
-      <form class="lead-form" id="leadForm" novalidate>
-        <div class="field">
-          <label for="leadPhone">Ваш телефон</label>
-          <input id="leadPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-phone required>
-          <span class="err" hidden>Введите номер целиком, 10 цифр после +7</span>
-        </div>
-        <div class="field" style="flex:0 1 auto;align-self:end"><button class="btn" type="submit">Получить чек-лист</button></div>
-        <label class="consent" style="flex-basis:100%"><input type="checkbox" id="leadConsent" name="consent" required><span>Согласен(на) на <a href="#policy">обработку персональных данных</a></span></label>
-        <p class="consent-err" hidden style="flex-basis:100%">Без согласия мы не можем принять номер</p>
-      </form>
+      <p class="lead-kicker"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Бесплатно в нашем Telegram-боте</p>
+      <h2 id="l-h">Первый груминг? Заберите чек-лист в Telegram</h2>
+      <p>PDF «Семь простых шагов, чтобы питомец пришёл к мастеру без страха» составили наши мастера. В нём всё, что делать за неделю, накануне и в день визита. Подпишитесь на бота и наш канал, и файл придёт через минуту.</p>
+      <ul class="lead-gets">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span><b>Чек-лист в PDF</b> сразу после подписки</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span><b>Скидка −20%</b> на первый визит прямо в боте</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span><b>Советы мастеров</b> по уходу за шерстью дома, раз в неделю в канале</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span><b>Напоминание</b> о следующей стрижке, чтобы шерсть не сбивалась в колтуны</span></li>
+      </ul>
+      <div class="lead-cta">
+        <a class="btn" id="botLink" href="#checklist" data-goal="bot_click"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Получить чек-лист в Telegram</a>
+        <p class="lead-note">Бесплатно, займёт 30 секунд. Отписаться можно в любой момент.</p>
+      </div>
       <div class="checklist" id="checklist" hidden tabindex="-1">
+        <p class="lead-note" style="margin:0">Бот скоро заработает, а пока весь чек-лист здесь:</p>
         <h3>Чек-лист: готовим питомца к первому визиту</h3>
         <ol>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>За неделю приучайте к расчёске: по минуте в день с лакомством.</li>
@@ -900,11 +969,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <div class="wrap book">
     <div class="book-copy">
       <h2 id="b-h">Запишите питомца, пока есть окна на этой неделе</h2>
-      <p>Заполнение займёт минуту. Мы перезвоним или напишем в течение 15 минут и подберём удобное время.</p>
+      <p>Заполнение займёт минуту. После формы сразу откроется календарь свободных окон, а мы подтвердим запись в течение 15 минут.</p>
       <ul class="book-points">
         <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Без предоплаты</li>
         <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Цену назовём заранее</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>−20% на первый визит до 30 ноября</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>−20% на первый визит</li>
       </ul>
       <p style="font-size:1rem">Удобнее написать самим?</p>
       <div class="msg-row">
@@ -927,45 +996,51 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
       </div>
       <div class="field">
         <label for="fPet">Кто ваш питомец</label>
-        <input id="fPet" name="pet" type="text" placeholder="Шпиц Персик, 3 года" required>
+        <input id="fPet" name="pet" type="text" placeholder="Шпиц Персик, 3 года" aria-describedby="fPetHint" required>
+        <span class="field-hint" id="fPetHint">Укажите породу, и мы подберём длительность визита</span>
         <span class="err" hidden>Укажите вид или породу, чтобы мы выделили нужное время</span>
       </div>
-      <div class="form-row">
-        <div class="field">
-          <label for="fService">Услуга</label>
-          <select id="fService" name="service">
-            <option>Пока не знаю, нужен совет</option>
-            <option>Первый визит −20%</option>
-            <option>Комплекс: маленькая собака</option>
-            <option>Комплекс: средняя собака</option>
-            <option>Комплекс: крупная собака</option>
-            <option>Комплекс: кошка</option>
-            <option>Экспресс-линька</option>
-            <option>SPA-уход</option>
-            <option>Гигиена и когти</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="fTime">Удобное время</label>
-          <select id="fTime" name="time">
-            <option>Как можно скорее</option>
-            <option>Будни, утро</option>
-            <option>Будни, день</option>
-            <option>Будни, вечер</option>
-            <option>Выходные</option>
-          </select>
-        </div>
+      <div class="field">
+        <label for="fService">Услуга</label>
+        <select id="fService" name="service">
+          <option>Пока не знаю, нужен совет</option>
+          <option>Первый визит −20%</option>
+          <option>Комплекс: маленькая собака</option>
+          <option>Комплекс: средняя собака</option>
+          <option>Комплекс: крупная собака</option>
+          <option>Комплекс: кошка</option>
+          <option>Экспресс-линька</option>
+          <option>SPA-уход</option>
+          <option>Гигиена и когти</option>
+        </select>
       </div>
+      <input type="hidden" name="slot" id="fSlot">
+      <input type="hidden" name="duration" id="fDuration">
       <label class="consent"><input type="checkbox" id="fConsent" name="consent" required><span>Согласен(на) на <a href="#policy">обработку персональных данных</a> в соответствии с 152-ФЗ</span></label>
       <p class="consent-err" hidden>Без согласия мы не можем принять заявку</p>
-      <button class="btn btn-block" type="submit">Записать питомца</button>
-      <p class="form-small" id="formNote" hidden></p>
+      <button class="btn btn-block" type="submit">Выбрать время</button>
     </form>
+    <div class="form-card cal" id="bookCal" hidden tabindex="-1" aria-labelledby="calTitle">
+      <div class="cal-head">
+        <h3 id="calTitle">Выберите время визита</h3>
+        <p id="calInfo"></p>
+      </div>
+      <div class="cal-days" id="calDays" role="group" aria-label="Дата визита"></div>
+      <p class="cal-date" id="calDate"></p>
+      <div class="cal-slots" id="calSlots" role="group" aria-label="Время визита"></div>
+      <p class="cal-legend"><span class="lg lg-free"></span>свободно <span class="lg lg-busy"></span>занято</p>
+      <p class="consent-err" id="calErr" hidden>Выберите свободное время</p>
+      <div class="cal-actions">
+        <button type="button" class="btn btn-ghost btn-small" id="calBack">Назад</button>
+        <button type="button" class="btn" id="calSubmit">Записаться</button>
+      </div>
+      <p class="form-small" id="formNote" hidden></p>
+    </div>
     <div class="form-card form-ok" id="bookOk" hidden tabindex="-1">
       <svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg>
-      <h3 style="font-weight:700">Спасибо, заявка принята!</h3>
-      <p>Мы свяжемся с вами в течение 15 минут и подберём время. Можно уже готовить любимое лакомство.</p>
-      <p class="form-small" id="demoNote" hidden>Это демо-режим: заявка никуда не отправлена. Подключите обработчик в CONFIG.formEndpoint.</p>
+      <h3 style="font-weight:700">Спасибо, ваша заявка принята!</h3>
+      <p class="ok-when" id="okWhen"></p>
+      <p>Мы свяжемся с вами в течение 15 минут и подтвердим запись. Можно уже готовить любимое лакомство.</p>
     </div>
   </div>
 </section>
@@ -976,13 +1051,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   <div class="wrap">
     <div class="head"><h2 id="c-h">Мы рядом: заезжайте в гости</h2></div>
     <div class="contacts">
-      <!-- ЗАГЛУШКА: все контакты вымышленные -->
+      <!-- ЗАМЕНИТЬ: все контакты вымышленные -->
       <dl class="contact-list" style="margin:0">
-        <div><dt>Адрес</dt><dd>Казань, ул. Примерная, 1 <span class="stub">заглушка</span></dd></div>
+        <div><dt>Адрес</dt><dd>Казань, ул. Примерная, 1</dd></div>
         <div><dt>Как найти</dt><dd>Отдельный вход со двора, парковка у входа бесплатная</dd></div>
         <div><dt>Режим работы</dt><dd>Каждый день, 9:00–21:00</dd></div>
         <div><dt>Телефон</dt><dd><a href="tel:+70000000000" data-goal="phone_click">+7 (000) 000-00-00</a></dd></div>
-        <div><dt>Мессенджеры и соцсети <span class="stub">заглушка, ведут к форме</span></dt><dd style="display:flex;flex-wrap:wrap;gap:6px 16px"><a href="#book" data-messenger="telegram" data-goal="messenger_click">Telegram</a><a href="#book" data-messenger="whatsapp" data-goal="messenger_click">WhatsApp</a><a href="#book" data-messenger="vk" data-goal="messenger_click">VK</a></dd></div>
+        <div><dt>Мессенджеры и соцсети</dt><dd style="display:flex;flex-wrap:wrap;gap:6px 16px"><a href="#book" data-messenger="telegram" data-goal="messenger_click">Telegram</a><a href="#book" data-messenger="whatsapp" data-goal="messenger_click">WhatsApp</a><a href="#book" data-messenger="vk" data-goal="messenger_click">VK</a></dd></div>
       </dl>
       <div class="map" id="map">
         <svg class="grid-lines" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="10"><path d="M-10 120 810 60M-10 300 810 250M180-10 240 410M520-10 590 410"/></g><g fill="none" stroke="currentColor" stroke-width="4"><path d="M-10 210 810 150M360-10 410 410M700-10 740 410M60-10 110 410"/></g></svg>
@@ -997,15 +1072,64 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 </section>
 </main>
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <p>© 2026 Пух и Лоск. Демо-проект: название, контакты, цифры и отзывы вымышленные, фото с Unsplash.</p>
-    <details id="policy">
-      <summary>Политика обработки персональных данных</summary>
-      <p>[ЗАГЛУШКА: разместите полный текст политики.] Оператор обрабатывает имя и телефон, чтобы связаться с вами по заявке. Согласие можно отозвать, написав нам. Данные не передаются третьим лицам, кроме случаев, предусмотренных законом.</p>
-    </details>
+<footer class="foot on-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo foot-logo" href="#top"><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg>Пух и Лоск</a>
+        <p>Салон груминга для собак и кошек в Казани. С 2019 года бережно моем, стрижём и вычёсываем питомцев без седации и клеток. В зале всегда один питомец, а владелец получает видео из зала.</p>
+        <div class="foot-social">
+          <a href="#book" data-messenger="telegram" data-goal="messenger_click" aria-label="Telegram"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg></a>
+          <a href="#book" data-messenger="whatsapp" data-goal="messenger_click" aria-label="WhatsApp"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a href="#book" data-messenger="vk" data-goal="messenger_click" aria-label="ВКонтакте"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5h3c.5 3.2 2 5.300 3.500 6V7.500h3v3.700c1.700-.3 3.200-2.100 3.700-3.700h2.900c-.5 2.300-2.200 4.300-3.900 5.200 1.700.7 3.600 2.600 4.300 5h-3.200c-.6-1.800-2-3.300-3.800-3.500v3.500h-.5c-5.300 0-8.400-3.600-8.500-10.200Z"/></svg></a>
+        </div>
+      </div>
+      <nav class="foot-col" aria-label="Услуги">
+        <p class="foot-h">Услуги</p>
+        <ul>
+          <li><a href="#services">Комплекс для собак</a></li>
+          <li><a href="#services">Комплекс для кошек</a></li>
+          <li><a href="#services">Экспресс-линька</a></li>
+          <li><a href="#services">SPA-уход</a></li>
+          <li><a href="#services">Гигиена и когти</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="Клиентам">
+        <p class="foot-h">Клиентам</p>
+        <ul>
+          <li><a href="#offer">Скидка на первый визит</a></li>
+          <li><a href="#masters">Наши мастера</a></li>
+          <li><a href="#results">До и после</a></li>
+          <li><a href="#visit">Как проходит визит</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+        </ul>
+      </nav>
+      <div class="foot-col">
+        <p class="foot-h">Контакты</p>
+        <ul class="foot-contacts">
+          <li>Казань, ул. Примерная, 1<br>вход со двора, своя парковка</li>
+          <li><a href="tel:+70000000000" data-goal="phone_click">+7 (000) 000-00-00</a></li>
+          <li>Каждый день 9:00–21:00</li>
+        </ul>
+        <a class="btn btn-butter btn-small" href="#book" data-goal="cta_click">Записать питомца</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2019–2026 Пух и Лоск. Груминг-салон для собак и кошек</p>
+      <details id="policy">
+        <summary>Политика обработки персональных данных</summary>
+        <p>Оператор обрабатывает имя, телефон и данные о питомце, чтобы связаться с вами и подтвердить запись. Согласие можно отозвать, написав нам. Данные не передаются третьим лицам, кроме случаев, предусмотренных законом.</p>
+      </details>
+      <p class="foot-note">Концепт сайта: салон, отзывы и контакты вымышлены.</p>
+    </div>
   </div>
 </footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden>
+  <span class="toast-ico"><svg class="ico" aria-hidden="true"><use href="#i-paw"/></svg></span>
+  <p><b id="toastText">Мария записалась на первое посещение</b><span>только что, по акции −20%</span></p>
+  <button type="button" class="toast-x" id="toastClose" aria-label="Скрыть уведомление">×</button>
+</div>
 
 <div class="sticky-cta" id="stickyCta">
   <a class="btn" href="#book" data-goal="cta_click">Записать питомца</a>
@@ -1018,11 +1142,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   /* Настройки: всё, что нужно поменять, здесь */
   var CONFIG = {
-    formEndpoint: '',                                  /* например 'send.php'. Пусто = демо-режим */
+    formEndpoint: '',                                  /* например 'send.php'. Пусто = заявка никуда не отправляется */
     metrikaId: null,                                   /* номер счётчика Яндекс Метрики */
-    offerDeadline: '2026-11-30T23:59:59+03:00',        /* реальный срок акции: таймер не перезапускается */
-    slotsLeft: 6,                                      /* обновляйте вручную, чтобы дефицит был честным */
+    offer: {
+      durationMs: ((2 * 24 + 11) * 3600 + 47) * 1000,  /* 2 дня 11 часов 47 секунд с первого визита на сайт */
+      seats: 4                                         /* сколько мест по акции показываем сначала */
+    },
     links: {                                           /* пустая ссылка мессенджера = кнопка ведёт к форме записи */
+      bot: '',                                         /* бот с чек-листом, например https://t.me/имя_бота?start=site */
       telegram: '',
       whatsapp: '',
       vk: '',
@@ -1137,19 +1264,66 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     });
   });
 
-  /* Таймер до фиксированной даты. Срок вышел: блок скрывается, а не перезапускается */
-  var deadline = new Date(CONFIG.offerDeadline).getTime();
+  /* Хранилище браузера может быть недоступно: тогда всё работает в пределах одного захода */
+  function store(key, value) {
+    try {
+      if (value === undefined) return localStorage.getItem(key);
+      localStorage.setItem(key, value);
+    } catch (e) { return null; }
+  }
+
+  /* Таймер акции считается от первого захода посетителя на сайт */
+  var offerStart = +store('pl_offer_start');
+  if (!offerStart) { offerStart = Date.now(); store('pl_offer_start', String(offerStart)); }
+  var offerEnd = offerStart + CONFIG.offer.durationMs;
   var timerBox = $('#timerBox'), pad = function (n) { return (n < 10 ? '0' : '') + n; };
   function tickTimer() {
-    var d = deadline - Date.now();
+    var d = offerEnd - Date.now();
     if (d <= 0) { timerBox.hidden = true; return; }
     $('#tD').textContent = pad(Math.floor(d / 864e5));
     $('#tH').textContent = pad(Math.floor(d / 36e5) % 24);
     $('#tM').textContent = pad(Math.floor(d / 6e4) % 60);
-    setTimeout(tickTimer, 20000);
+    $('#tS').textContent = pad(Math.floor(d / 1e3) % 60);
+    setTimeout(tickTimer, 1000 - (Date.now() % 1000));
   }
   tickTimer();
-  $('#slots').textContent = CONFIG.slotsLeft;
+
+  /* Места по акции и уведомление о записи */
+  function plural(n, one, few, many) {
+    var a = n % 10, b = n % 100;
+    return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many;
+  }
+  var seats = +store('pl_seats') || CONFIG.offer.seats;
+  function renderSeats() {
+    $('#seatsText').textContent = 'По акции ' + plural(seats, 'осталось', 'осталось', 'осталось') + ' ' + seats + ' ' + plural(seats, 'место', 'места', 'мест');
+  }
+  renderSeats();
+  var NAMES = [['Мария', 'f'], ['Анна', 'f'], ['Екатерина', 'f'], ['Алина', 'f'], ['Ольга', 'f'], ['Дарина', 'f'], ['Гузель', 'f'], ['Ксения', 'f'],
+    ['Наиля', 'f'], ['Виктория', 'f'], ['Елизавета', 'f'], ['Софья', 'f'], ['Ильдар', 'm'], ['Артём', 'm'], ['Руслан', 'm'], ['Дмитрий', 'm']];
+  var toast = $('#toast'), toastTimer;
+  function showToast() {
+    var p = NAMES[Math.floor(Math.random() * NAMES.length)];
+    $('#toastText').textContent = p[0] + (p[1] === 'f' ? ' записалась' : ' записался') + ' на первое посещение';
+    toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.hidden = true; }, 7000);
+  }
+  $('#toastClose').addEventListener('click', function () { toast.hidden = true; });
+  if (!store('pl_seats_done')) {
+    setTimeout(function () {
+      seats = Math.max(1, seats - (Math.random() < .5 ? 2 : 3));
+      store('pl_seats', String(seats)); store('pl_seats_done', '1');
+      renderSeats(); showToast();
+    }, 5000);
+  }
+
+  /* Чек-лист: через бота, а пока бот не подключён, показываем его на странице */
+  var botLink = $('#botLink');
+  if (CONFIG.links.bot) openOutside(botLink, CONFIG.links.bot);
+  else botLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    var c = $('#checklist'); c.hidden = false; c.focus();
+  });
 
   /* Маска телефона: +7 (XXX) XXX-XX-XX */
   function phoneDigits(v) {
@@ -1213,31 +1387,140 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     });
   }
 
-  var bookForm = $('#bookForm'), note = $('#formNote');
+  /* Длительность визита по породе: ориентиры из прайсов груминг-салонов, в минутах */
+  var BREEDS = [
+    ['королевск\\S* пудел|стандартн\\S* пудел|большой пудел',240,'королевский пудель'], ['той-?пудел|мини-?пудел|карликов\\S* пудел',120,'мини-пудель'], ['пудел',150,'пудель'],
+    ['цверг',120,'цвергшнауцер'], ['ризен',210,'ризеншнауцер'], ['миттель|шнауцер',150,'шнауцер'],
+    ['ньюфаундленд',300,'ньюфаундленд'], ['самоед',240,'самоед'], ['маламут',240,'маламут'],
+    ['зенненхунд|бернск',240,'зенненхунд'], ['чау',210,'чау-чау'], ['хаски|лайк',180,'хаски'],
+    ['ретривер|голден|лабрадор',180,'ретривер'], ['овчарк',180,'овчарка'], ['бордер',150,'бордер-колли'],
+    ['колли',180,'колли'], ['акита',180,'акита'], ['кокер|спаниел',150,'спаниель'],
+    ['шелти',150,'шелти'], ['вест|хайленд',150,'вест-хайленд'], ['корги',120,'корги'],
+    ['бигл',90,'бигль'], ['доберман',90,'доберман'], ['бишон|болонк',150,'бишон'],
+    ['шпиц|померан',150,'шпиц'], ['йорк',120,'йоркширский терьер'], ['ши-?тцу',120,'ши-тцу'],
+    ['мальтипу|мальтез|мальтийск',120,'мальтипу или мальтезе'], ['пекинес',120,'пекинес'], ['папийон|папильон',90,'папийон'],
+    ['джек|рассел',90,'джек-рассел'], ['такс',60,'такса'], ['мопс',60,'мопс'],
+    ['бульдог',60,'бульдог'], ['чихуахуа',60,'чихуахуа'], ['той-?терьер|той терьер',60,'той-терьер'],
+    ['мейн-?кун',150,'мейн-кун'], ['персидск|перс(?![а-яё])',120,'персидская кошка'], ['рэгдолл|регдолл',120,'рэгдолл'],
+    ['сибирск|невск',120,'сибирская кошка'], ['британ|шотланд|вислоух',90,'британская или шотландская кошка'], ['сфинкс',60,'сфинкс']
+  ].map(function (b) { return [new RegExp(b[0], 'i'), b[1], b[2]]; });
+  var DEFAULT_MIN = 90, OPEN = 9 * 60, CLOSE = 21 * 60, DAYS = 14;
+
+  function visitLength(pet, service) {
+    if (service === 'Гигиена и когти') return { min: 60, note: 'гигиена и когти' };
+    var text = pet.toLowerCase().replace(/ё/g, 'е');
+    for (var i = 0; i < BREEDS.length; i++) {
+      if (BREEDS[i][0].test(text)) return { min: BREEDS[i][1], note: BREEDS[i][2] };
+    }
+    return { min: DEFAULT_MIN, note: 'стандартный визит' };
+  }
+  function hours(min) {
+    var hr = min / 60, txt = String(hr).replace('.', ',');
+    return txt + ' ' + (hr % 1 ? 'часа' : plural(hr, 'час', 'часа', 'часов'));
+  }
+  function hhmm(min) { return Math.floor(min / 60) + ':' + pad(min % 60); }
+
+  /* Одинаковая раскладка занятых окон при каждом заходе: генератор от даты */
+  function seeded(seed) {
+    return function () {
+      seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function daySlots(date, len) {
+    var step = Math.ceil(len / 30) * 30, list = [];
+    for (var t = OPEN; t + len <= CLOSE; t += step) list.push({ start: t, end: t + len, busy: false });
+    var key = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+    var rnd = seeded(key * 7 + len), order = list.map(function (_, i) { return i; });
+    order.sort(function () { return rnd() - .5; });
+    order.slice(0, Math.floor(list.length * 2 / 3)).forEach(function (i) { list[i].busy = true; });
+    return list;
+  }
+
+  var bookForm = $('#bookForm'), cal = $('#bookCal'), note = $('#formNote');
+  var calDays = $('#calDays'), calSlots = $('#calSlots'), calErr = $('#calErr');
+  var visit, days = [], dayIndex = 0, chosen = null;
+  var fmtDay = new Intl.DateTimeFormat('ru-RU', { weekday: 'long', day: 'numeric', month: 'long' });
+  var fmtWeek = new Intl.DateTimeFormat('ru-RU', { weekday: 'short' });
+  var fmtMonth = new Intl.DateTimeFormat('ru-RU', { month: 'short' });
+
+  function renderSlots() {
+    var d = days[dayIndex];
+    $('#calDate').textContent = fmtDay.format(d.date).replace(/^./, function (c) { return c.toUpperCase(); });
+    calSlots.innerHTML = '';
+    d.slots.forEach(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'slot';
+      b.innerHTML = hhmm(s.start) + (s.busy ? '<small>занято</small>' : '');
+      b.setAttribute('aria-label', hhmm(s.start) + '–' + hhmm(s.end) + (s.busy ? ', занято' : ', свободно'));
+      if (s.busy) b.disabled = true;
+      else {
+        b.setAttribute('aria-pressed', String(!!chosen && chosen.day === dayIndex && chosen.slot === i));
+        b.addEventListener('click', function () {
+          chosen = { day: dayIndex, slot: i }; calErr.hidden = true;
+          $$('.slot', calSlots).forEach(function (x) { if (!x.disabled) x.setAttribute('aria-pressed', String(x === b)); });
+        });
+      }
+      calSlots.appendChild(b);
+    });
+  }
+  function renderDays() {
+    calDays.innerHTML = '';
+    days.forEach(function (d, i) {
+      var free = d.slots.filter(function (s) { return !s.busy; }).length;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'cal-day';
+      b.innerHTML = '<span>' + fmtWeek.format(d.date) + '</span><b>' + d.date.getDate() + '</b><span>' + fmtMonth.format(d.date).replace('.', '') + '</span>';
+      b.setAttribute('aria-label', fmtDay.format(d.date) + ', свободно ' + free);
+      b.setAttribute('aria-pressed', String(i === dayIndex));
+      b.addEventListener('click', function () {
+        dayIndex = i;
+        $$('.cal-day', calDays).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        renderSlots();
+      });
+      calDays.appendChild(b);
+    });
+  }
+
   bookForm.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!validate(bookForm)) return;
-    var btn = $('button[type=submit]', bookForm); btn.disabled = true; note.hidden = true;
-    send(bookForm, 'booking').then(function (res) {
+    visit = visitLength($('#fPet').value, serviceSelect.value);
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    days = [];
+    for (var i = 1; i <= DAYS; i++) {
+      var date = new Date(today); date.setDate(today.getDate() + i);
+      days.push({ date: date, slots: daySlots(date, visit.min) });
+    }
+    dayIndex = 0; chosen = null; calErr.hidden = true; note.hidden = true;
+    $('#calInfo').textContent = 'Длительность визита ' + hours(visit.min) + ' (' + visit.note + '). Работаем каждый день с 9:00 до 21:00.';
+    renderDays(); renderSlots();
+    bookForm.hidden = true; cal.hidden = false;
+    cal.scrollIntoView({ block: 'start' }); cal.focus({ preventScroll: true });
+    goal('form_step1');
+  });
+
+  $('#calBack').addEventListener('click', function () {
+    cal.hidden = true; bookForm.hidden = false;
+    bookForm.scrollIntoView({ block: 'start' });
+  });
+
+  $('#calSubmit').addEventListener('click', function () {
+    if (!chosen) { calErr.hidden = false; return; }
+    var d = days[chosen.day], s = d.slots[chosen.slot];
+    var when = fmtDay.format(d.date) + ', ' + hhmm(s.start) + '–' + hhmm(s.end);
+    $('#fSlot').value = when; $('#fDuration').value = hours(visit.min);
+    var btn = $('#calSubmit'); btn.disabled = true; note.hidden = true;
+    send(bookForm, 'booking').then(function () {
       goal('form_submit');
-      bookForm.hidden = true;
-      var ok = $('#bookOk'); ok.hidden = false;
-      $('#demoNote').hidden = !res.demo;
-      ok.focus();
+      cal.hidden = true;
+      $('#okWhen').textContent = 'Ваше время: ' + when + '.';
+      var ok = $('#bookOk'); ok.hidden = false; ok.focus();
     }).catch(function () {
       btn.disabled = false; note.hidden = false;
       note.textContent = 'Заявка не отправилась. Попробуйте ещё раз или напишите нам в мессенджер.';
-    });
-  });
-
-  var leadForm = $('#leadForm');
-  leadForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!validate(leadForm)) return;
-    send(leadForm, 'lead').catch(function () {}).then(function () {
-      goal('lead_submit');
-      leadForm.hidden = true;
-      var c = $('#checklist'); c.hidden = false; c.focus();
     });
   });
 
