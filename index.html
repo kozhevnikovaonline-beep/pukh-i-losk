@@ -1290,29 +1290,41 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     var a = n % 10, b = n % 100;
     return a === 1 && b !== 11 ? one : a >= 2 && a <= 4 && (b < 12 || b > 14) ? few : many;
   }
-  var seats = +store('pl_seats') || CONFIG.offer.seats;
+  var seats = CONFIG.offer.seats;
   function renderSeats() {
     $('#seatsText').textContent = 'По акции ' + plural(seats, 'осталось', 'осталось', 'осталось') + ' ' + seats + ' ' + plural(seats, 'место', 'места', 'мест');
   }
   renderSeats();
   var NAMES = [['Мария', 'f'], ['Анна', 'f'], ['Екатерина', 'f'], ['Алина', 'f'], ['Ольга', 'f'], ['Дарина', 'f'], ['Гузель', 'f'], ['Ксения', 'f'],
     ['Наиля', 'f'], ['Виктория', 'f'], ['Елизавета', 'f'], ['Софья', 'f'], ['Ильдар', 'm'], ['Артём', 'm'], ['Руслан', 'm'], ['Дмитрий', 'm']];
-  var toast = $('#toast'), toastTimer;
+  var toast = $('#toast'), toastTimer, lastName = '';
   function showToast() {
-    var p = NAMES[Math.floor(Math.random() * NAMES.length)];
+    var p;
+    do { p = NAMES[Math.floor(Math.random() * NAMES.length)]; } while (p[0] === lastName);
+    lastName = p[0];
     $('#toastText').textContent = p[0] + (p[1] === 'f' ? ' записалась' : ' записался') + ' на первое посещение';
     toast.hidden = false;
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.hidden = true; }, 7000);
+    toastTimer = setTimeout(function () { toast.hidden = true; }, 5000);
   }
   $('#toastClose').addEventListener('click', function () { toast.hidden = true; });
-  if (!store('pl_seats_done')) {
+
+  /* Когда посетитель доходит до блока акции: через 3 с минус одно место и плашка, ещё через 7 с вторая плашка */
+  function startOfferNotices() {
     setTimeout(function () {
-      seats = Math.max(1, seats - (Math.random() < .5 ? 2 : 3));
-      store('pl_seats', String(seats)); store('pl_seats_done', '1');
+      seats = Math.max(1, seats - 1);
       renderSeats(); showToast();
-    }, 5000);
+      setTimeout(showToast, 7000);
+    }, 3000);
   }
+  var offerBlock = $('#offer');
+  if ('IntersectionObserver' in window) {
+    var offerObs = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      offerObs.disconnect(); startOfferNotices();
+    }, { threshold: .35 });
+    offerObs.observe(offerBlock);
+  } else startOfferNotices();
 
   /* Чек-лист: через бота, а пока бот не подключён, показываем его на странице */
   var botLink = $('#botLink');
